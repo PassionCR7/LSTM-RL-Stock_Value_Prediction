@@ -1,10 +1,4 @@
-下面是**带GitHub徽章、完整可直接保存**的 `README.md` 全部内容。
-
-> 
-> 操作：全选复制 → 新建文本文档粘贴 →另存为 `README.md`，编码选择 **UTF‑8**，直接丢进仓库根目录git推送即可。
-
-```
-# LSTM‑RL‑Stock_Value_Prediction
+LSTM-RL-Stock_Value_Prediction
 
 <p align="center">
 <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
@@ -32,26 +26,21 @@
 5. **完整回测评估**：计算总收益率、最大回撤、交易胜率等量化指标评估策略性能。
 
 ## 📂 项目目录结构
-```
-
 LSTM‑RL‑Stock_Value_Prediction/
-├── data/                 # 股票历史数据集，csv行情数据存放目录
-├── model/                # LSTM权重、RL智能体模型保存位置
-├── result/               # 输出图片、预测结果csv、回测日志
+├── data/                 # 股票历史数据集，csv 行情数据存放目录
+├── model/                # LSTM 权重、RL 智能体模型保存位置
+├── result/               # 输出图片、预测结果 csv、回测日志
 ├── src/
-│   ├── data_process.py   # 数据加载、预处理、归一化、数据集构建
-│   ├── lstm_model.py     # LSTM网络定义、训练、预测逻辑
-│   ├── stock_env.py      # 自定义强化学习股票交易环境
-│   ├── rl_agent.py       # RL智能体定义、训练模块
-│   ├── visualize.py      # 绘图可视化（预测曲线、收益曲线）
-├── train_lstm.py         # LSTM训练入口
-├── train_rl.py           # 强化学习智能体训练入口
-├── main.py               # 完整流程入口（预测+RL回测）
+│   ├── data\[_process.py](_process.py)   # 数据加载、预处理、归一化、数据集构建
+│   ├── lstm\[_model.py](_model.py)     # LSTM 网络定义、训练、预测逻辑
+│   ├── stock\[_env.py](_env.py)      # 自定义强化学习股票交易环境
+│   ├── rl\[_agent.py](_agent.py)       # RL 智能体定义、训练模块
+│   ├── [visualize.py](visualize.py)      # 绘图可视化（预测曲线、收益曲线）
+├── train\[_lstm.py](_lstm.py)         # LSTM 训练入口
+├── train\[_rl.py](_rl.py)           # 强化学习智能体训练入口
+├── [main.py](main.py)               # 完整流程入口（预测 + RL 回测）
 ├── requirements.txt      # 项目依赖包
-└── README.md             # 项目文档
-
-```
-
+└── [README.md](README.md)             # 项目文档
 ## 💻 环境依赖
 ### 软硬件推荐
 - Python >= 3.9
@@ -66,11 +55,7 @@ cd LSTM-RL-Stock_Value_Prediction
 
 # 安装项目依赖
 pip install -r requirements.txt
-```
-
 核心依赖清单：
-
-```
 numpy
 pandas
 matplotlib
@@ -79,98 +64,55 @@ torch
 stable‑baselines3
 gym
 tqdm
-```
-
-## 📥 数据集说明
-
-1. **内置数据**：`data/`目录存放股票CSV历史行情数据，标准字段：`date,open,high,low,close,volume`。
-2. **使用自定义股票数据**
-   - 将csv行情文件放入`data/`文件夹。
-   - 文件必须包含：日期、开盘价、最高价、最低价、收盘价、成交量列。
-   - 程序自动完成归一化、滑动窗口构建时序样本，无需手动预处理。
-3. **扩展数据源**：可通过`yfinance`库下载A股/美股历史行情，保存为csv放入data目录直接使用。
-
-示例CSV格式：
-
-```
+📥 数据集说明
+1. 内置数据：data/目录存放股票 CSV 历史行情数据，标准字段：date,open,high,low,close,volume。
+2. 使用自定义股票数据
+  - 将 csv 行情文件放入data/文件夹。
+  - 文件必须包含：日期、开盘价、最高价、最低价、收盘价、成交量列。
+  - 程序自动完成归一化、滑动窗口构建时序样本，无需手动预处理。
+3. 扩展数据源：可通过yfinance库下载 A 股 / 美股历史行情，保存为 csv 放入 data 目录直接使用。
+示例 CSV 格式：
 date,open,high,low,close,volume
 2020‑01‑02,12.3,12.8,12.1,12.6,23456700
-```
-
-## 🚀 快速运行
-
-### 1. 训练LSTM股价预测模型
-
-```
+🚀 快速运行
+1. 训练 LSTM 股价预测模型
 python train_lstm.py
-```
-
-- 读取`data`目录股票行情数据
+- 读取data目录股票行情数据
 - 数据归一化，构造时间序列样本
-- 训练LSTM网络，权重保存至`model/`
-- 在`result/`输出预测股价与真实股价对比图
-
-### 2. 训练强化学习交易智能体
-
-> 
-> 将LSTM预测股价作为特征输入RL仿真环境，训练交易Agent
-
-```
+- 训练 LSTM 网络，权重保存至model/
+- 在result/输出预测股价与真实股价对比图
+2. 训练强化学习交易智能体
+将 LSTM 预测股价作为特征输入 RL 仿真环境，训练交易 Agent
 python train_rl.py
-```
-
-- 加载已训练完成的LSTM模型生成股价预测
+- 加载已训练完成的 LSTM 模型生成股价预测
 - 初始化自定义股票交易环境
-- RL智能体与环境交互迭代，最大化资产收益
-- 保存RL模型，输出回测资产净值曲线
-
-### 3. 一键完整流程（LSTM预测 + RL策略回测）
-
-```
+- RL 智能体与环境交互迭代，最大化资产收益
+- 保存 RL 模型，输出回测资产净值曲线
+3. 一键完整流程（LSTM 预测 + RL 策略回测）
 python main.py
-```
-
-执行链路：数据加载 → LSTM股价预测 → RL策略回测 → 输出图表与量化指标。
-
-### 4. 仅推理测试，跳过训练
-
+执行链路：数据加载 → LSTM 股价预测 → RL 策略回测 → 输出图表与量化指标。
+4. 仅推理测试，跳过训练
 加载已保存模型，直接进行预测与回测：
-
-```
 python main.py --test_only True
-```
-
-## 📊 输出结果说明
-
-全部运行输出存放于`result/`文件夹：
-
-1. `lstm_pred.png`：LSTM预测股价VS真实股价对比折线图
-2. `rl_return.png`：强化学习回测资产净值变化曲线
-3. `backtest_result.csv`：每日交易记录（持仓、现金、交易动作、股价）
-4. 控制台打印回测指标：**总收益率、最大回撤、交易总次数、交易胜率**
-
-## ⚙️ 关键可调超参数
-
+📊 输出结果说明
+全部运行输出存放于result/文件夹：
+1. lstm_pred.png：LSTM 预测股价 VS 真实股价对比折线图
+2. rl_return.png：强化学习回测资产净值变化曲线
+3. backtest_result.csv：每日交易记录（持仓、现金、交易动作、股价）
+4. 控制台打印回测指标：总收益率、最大回撤、交易总次数、交易胜率
+⚙️ 关键可调超参数
 可直接修改脚本头部参数：
-
-- `time_step`：LSTM时序窗口，使用N天历史数据预测下一日股价
-- `lstm_hidden_dim`：LSTM隐藏层维度大小
-- `train_test_split_rate`：训练集测试集划分比例
-- `rl_total_timesteps`：强化学习总训练步数
-- `initial_money`：回测模拟初始资金
-
-## 📝 项目声明
-
-1. **本项目仅用于算法学习、毕业设计、学术实验，不构成任何投资建议。禁止直接将模型输出用于实盘交易。**
+- time_step：LSTM 时序窗口，使用 N 天历史数据预测下一日股价
+- lstm_hidden_dim：LSTM 隐藏层维度大小
+- train_test_split_rate：训练集测试集划分比例
+- rl_total_timesteps：强化学习总训练步数
+- initial_money：回测模拟初始资金
+📝 项目声明
+1. 本项目仅用于算法学习、毕业设计、学术实验，不构成任何投资建议。禁止直接将模型输出用于实盘交易。
 2. 使用历史公开行情数据集，股票市场充满随机因素，模型不能保证未来预测准确性。
 3. 开源协议：Apache‑2.0，欢迎学习、Fork、二次开发。
-
-## 🌟 Star & Fork
-
-如果本项目对你学习时序预测、强化学习在金融领域的应用有帮助，欢迎Star⭐收藏、Fork二次开发！
-
-```
-
+🌟 Star & Fork
+如果本项目对你学习时序预测、强化学习在金融领域的应用有帮助，欢迎 Star⭐收藏、Fork 二次开发！
 ### 使用提醒
 1. Windows保存时，编码务必选 **UTF‑8**，防止GitHub中文乱码。
 2. 如果你的仓库实际文件名、文件夹名字和上面不一致，把仓库文件列表发给我，我帮你精准对齐。
