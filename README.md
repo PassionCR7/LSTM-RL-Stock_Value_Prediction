@@ -1,12 +1,4 @@
-LSTM-RL-Stock_Value_Prediction
-
-<p align="center">
-<img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
-<img src="https://img.shields.io/badge/PyTorch-2.x-orange.svg" alt="PyTorch">
-<img src="https://img.shields.io/badge/LSTM-%20TimeSeries-green" alt="LSTM">
-<img src="https://img.shields.io/badge/RL-ReinforcementLearning-red" alt="RL">
-<img src="https://img.shields.io/badge/License-Apache2.0-yellow.svg" alt="Apache2.0">
-</p>
+LSTM‑RL‑Stock_Value_Prediction
 
 > ⚠️ **风险声明：本项目仅用于学术实验、算法学习研究，不构成任何投资建议，股市有风险，投资需谨慎。**
 
@@ -26,49 +18,23 @@ LSTM-RL-Stock_Value_Prediction
 5. **完整回测评估**：计算总收益率、最大回撤、交易胜率等量化指标评估策略性能。
 
 ## 📂 项目目录结构
-LSTM‑RL‑Stock_Value_Prediction/
-
-├── data/                 # 股票历史数据集，csv 行情数据存放目录
-
-├── model/                # LSTM 权重、RL 智能体模型保存位置
-
-├── result/               # 输出图片、预测结果 csv、回测日志
-
+```
+LSTM-RL-Stock_Value_Prediction/
+├── data/                # 股票历史数据集，csv行情数据存放目录
+├── model/               # LSTM权重、RL智能体模型保存位置
+├── result/              # 输出图片、预测结果csv、回测日志
 ├── src/
-│   ├── data\[_process.py](_process.py)   # 数据加载、预处理、归一化、数据集构建
-
-│   ├── lstm\[_model.py](_model.py)     # LSTM 网络定义、训练、预测逻辑
-
-│   ├── stock\[_env.py](_env.py)      # 自定义强化学习股票交易环境
-
-│   ├── rl\[_agent.py](_agent.py)       # RL 智能体定义、训练模块
-
-│   ├── [visualize.py](visualize.py)      # 绘图可视化（预测曲线、收益曲线）
-
-├── train\[_lstm.py](_lstm.py)         # LSTM 训练入口
-
-├── train\[_rl.py](_rl.py)           # 强化学习智能体训练入口
-
-├── [main.py](main.py)               # 完整流程入口（预测 + RL 回测）
-
-├── requirements.txt      # 项目依赖包
-
-└── [README.md](README.md)             # 项目文档
-
-## 💻 环境依赖
-### 软硬件推荐
-- Python >= 3.9
-- GPU可选（CPU可运行，训练速度较慢）
-- 系统：Windows / Linux / macOS
-
-### 快速安装依赖
-```bash
-# 克隆仓库
-git clone https://github.com/PassionCR7/LSTM-RL-Stock_Value_Prediction.git
-cd LSTM-RL-Stock_Value_Prediction
-
-# 安装项目依赖
-pip install -r requirements.txt
+│   ├── data_process.py  # 数据加载、预处理、归一化、数据集构建
+│   ├── lstm_model.py    # LSTM网络定义、训练、预测逻辑
+│   ├── stock_env.py     # 自定义强化学习股票交易环境
+│   ├── rl_agent.py      # RL智能体定义、训练模块
+│   ├── visualize.py     # 绘图可视化（预测曲线、收益曲线）
+├── train_lstm.py        # LSTM训练入口
+├── train_rl.py          # 强化学习智能体训练入口
+├── main.py              # 完整流程入口（预测 + RL回测）
+├── requirements.txt     # 项目依赖包
+└── README.md            # 项目文档
+```
 核心依赖清单：
 numpy
 pandas
