@@ -27,20 +27,34 @@ LSTM-RL-Stock_Value_Prediction
 
 ## 📂 项目目录结构
 LSTM‑RL‑Stock_Value_Prediction/
+
 ├── data/                 # 股票历史数据集，csv 行情数据存放目录
+
 ├── model/                # LSTM 权重、RL 智能体模型保存位置
+
 ├── result/               # 输出图片、预测结果 csv、回测日志
+
 ├── src/
 │   ├── data\[_process.py](_process.py)   # 数据加载、预处理、归一化、数据集构建
+
 │   ├── lstm\[_model.py](_model.py)     # LSTM 网络定义、训练、预测逻辑
+
 │   ├── stock\[_env.py](_env.py)      # 自定义强化学习股票交易环境
+
 │   ├── rl\[_agent.py](_agent.py)       # RL 智能体定义、训练模块
+
 │   ├── [visualize.py](visualize.py)      # 绘图可视化（预测曲线、收益曲线）
+
 ├── train\[_lstm.py](_lstm.py)         # LSTM 训练入口
+
 ├── train\[_rl.py](_rl.py)           # 强化学习智能体训练入口
+
 ├── [main.py](main.py)               # 完整流程入口（预测 + RL 回测）
+
 ├── requirements.txt      # 项目依赖包
+
 └── [README.md](README.md)             # 项目文档
+
 ## 💻 环境依赖
 ### 软硬件推荐
 - Python >= 3.9
